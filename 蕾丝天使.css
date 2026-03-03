@@ -1,7 +1,7 @@
 /*! 
  * Theme: 蕾丝天使
  * Author: endlessrefrain
- * 当前版本: 1.1.0 | 最后更新: 2026-03-03
+ * 当前版本: 1.1.1 | 最后更新: 2026-03-03
  */
  
 /*! 仅限个人自用，请勿用于任何商业化用途，请勿私自转载源文件至其他社区/平台 */
@@ -30,7 +30,7 @@
   --User头像显示区域: center 50%;
   --时间戳及姓名显示: 0; /* 1开0关 */
 
-  --大小
+  --size-1: var(--mainFontSize);
 }
 
 #chat .mes[ch_name="祝昀"] .avatar img {
@@ -51,7 +51,7 @@
 /*! ======= 聊天区域 ======= */
 #sheld {
   backdrop-filter: blur(var(--聊天背景模糊)) !important;
-
+ /* nakari */
   body:not(.waifuMode) & {
     top: var(--bottomFormBlockSize);
     height: calc(100dvh - var(--bottomFormBlockSize));
@@ -118,7 +118,7 @@ body.no-blur #send_form {
     left: calc(50% + 0px);
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: calc(var(--mainFontSize) * 0.85);
+    font-size: calc(var(--size-1) * 0.85);
     color: var(--SmartThemeEmColor);
     pointer-events: none;
     z-index: 1;
@@ -338,7 +338,7 @@ body.no-blur #send_form {
   font-size: 0;
   &::before {
     content: var(--思维链标题);
-    font-size: calc(var(--mainFontSize) * 0.1);
+    font-size: calc(var(--size-1) * 0.9);
     padding: 0 10px;
   }
   &::after {
@@ -349,7 +349,7 @@ body.no-blur #send_form {
     transform: translate(-50%, -50%);
     color: var(--SmartThemeQuoteColor);
     opacity: 0.45;
-    font-size: calc(var(--mainFontSize, 36px) * 2.5);
+    font-size: calc(var(--size-1, 16px) * 2.5);
     white-space: nowrap;
     font-family: var(--英文字体);
     z-index: -1;
@@ -371,7 +371,7 @@ body.no-blur #send_form {
     margin-bottom: 5px;
     max-height: 500px;
     overflow: hidden auto;
-    font-size: calc(var(--mainFontSize) * 0.9);
+    font-size: calc(var(--size-1) * 0.9);
     border-radius: 2px;
     border: 1px solid var(--SmartThemeEmColor);
     background: rgba(255,255,255,0.6);
