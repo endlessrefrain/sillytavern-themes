@@ -1,7 +1,7 @@
 /*! 
  * Theme: 蕾丝天使
  * Author: endlessrefrain
- * 当前版本: 1.1.1 | 最后更新: 2026-03-03
+ * 当前版本: 1.1.2 | 最后更新: 2026-03-03
  */
  
 /*! 仅限个人自用，请勿用于任何商业化用途，请勿私自转载源文件至其他社区/平台 */
@@ -30,14 +30,14 @@
   --User头像显示区域: center 50%;
   --时间戳及姓名显示: 0; /* 1开0关 */
 
-  --size-1: var(--mainFontSize);
+  --size-1: 14px;
 }
 
 #chat .mes[ch_name="祝昀"] .avatar img {
   object-position: center -20%;
 }
 
-/*! ======= 通用设置 ======= */
+/*! ======= 页面优化 ======= */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -46,6 +46,11 @@
   border-radius: 1px !important;
   border: none  !important;
   box-shadow: none !important;
+}
+
+#chat .mes {
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /*! ======= 聊天区域 ======= */
@@ -174,7 +179,6 @@ body.no-blur #send_form {
   border: none;
 }
 
-
 /*! ======= 消息气泡 ======= */
 #chat .mes {
   flex-direction: column;
@@ -273,7 +277,7 @@ body.no-blur #send_form {
     aspect-ratio: 583 / 225;
     width: 304px;
     height: auto;
-    left: calc(50% + 0.4px);
+    left: calc(50% + 0.5px);
     top: calc(50% + 3px);
     background-image: url('https://files.catbox.moe/fh7fqk.gif');
   }
@@ -289,9 +293,9 @@ body.no-blur #send_form {
 
 .swipe_right::before,
 .swipe_left::before {
-  content: "\◎";
+  content: "◈";
   opacity: 0.5;
-  font-size: 0.65em;
+  font-size: 0.85em;
 }
 
 .swipe_left {
@@ -338,7 +342,7 @@ body.no-blur #send_form {
   font-size: 0;
   &::before {
     content: var(--思维链标题);
-    font-size: calc(var(--size-1) * 0.9);
+    font-size: calc(var(--size-1) * 0.85);
     padding: 0 10px;
   }
   &::after {
@@ -349,7 +353,7 @@ body.no-blur #send_form {
     transform: translate(-50%, -50%);
     color: var(--SmartThemeQuoteColor);
     opacity: 0.45;
-    font-size: calc(var(--size-1, 16px) * 2.5);
+    font-size: calc(var(--size-1) * 2.75);
     white-space: nowrap;
     font-family: var(--英文字体);
     z-index: -1;
@@ -384,16 +388,11 @@ body.no-blur #send_form {
   }
 }
 
-
 /*! ======= 特殊文本美化 ======= */
 q {
   text-decoration-line: underline;
   text-decoration-style: dotted;
   text-underline-offset: 0.3em;
-}
-
-em {
-  
 }
 
 code {
@@ -418,8 +417,6 @@ code {
   background: color-mix(in srgb, var(--SmartThemeQuoteColor) 35%, white) !important;
   border-radius: 5px;
 }
-
-
 
 /*! ======= 顶部菜单 ======= */
 #top-bar, 
@@ -464,8 +461,6 @@ body.no-blur #top-bar {
     color: var(--SmartThemeQuoteColor);
   }
 }
-
-
 
 /*! ======= 抽屉页 ======= */
 :root {
@@ -560,8 +555,7 @@ div[name="themeElements"] > div.inline-drawer.wide100p > div.inline-drawer-toggl
   color: #222 !important;
 }
 
-/* 隐藏部分侧边栏元素 */
-.drawer-content .menu_button span:not(.fa) {
+#world_create_button .menu_button span:not(.fa) {
   display: none;
 }
 
@@ -759,7 +753,6 @@ div.toast.toast-success {
   align-items: center;
 }
 
-
 /*! ======= 左侧导航 ====== */
 .range-block > .toggle-description {
   margin-right: 0;
@@ -849,6 +842,12 @@ label[for="openai_image_inlining"] + div,
   overflow: hidden;
 }
 
+.avatars_inline {
+  gap: 3px;
+  flex-wrap: nowrap;
+  overflow: visible;
+}
+
 #HotSwapWrapper > div {
   overflow: auto hidden; 
   flex-wrap: nowrap;
@@ -857,19 +856,4 @@ label[for="openai_image_inlining"] + div,
     display: none;
   }
 }
-
-.avatars_inline {
-  gap: 5px;
-  flex-wrap: nowrap;
-  overflow: visible;
-}
-  
-
-
-
-
-
-
-
-
 
