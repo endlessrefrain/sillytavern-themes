@@ -1,7 +1,7 @@
 /*! 
  * Theme: 蕾丝天使
  * Author: endlessrefrain
- * 当前版本: 1.0.0 | 最后更新: 2026-03-03
+ * 当前版本: 1.1.0 | 最后更新: 2026-03-03
  */
  
 /*! 仅限个人自用，请勿用于任何商业化用途，请勿私自转载源文件至其他社区/平台 */
@@ -15,7 +15,7 @@
 :root {
   --聊天背景模糊: 0px;
   --思维链标题: "思考了一下";
-  --思维链花体英文: "hello hello good morning";
+  --思维链花体英文: "good morning";
   --英文字体: "ZSFT-l";
   --输入框占位文字: "";
 
@@ -29,6 +29,8 @@
   --Char头像显示区域: center 50%;
   --User头像显示区域: center 50%;
   --时间戳及姓名显示: 0; /* 1开0关 */
+
+  --大小
 }
 
 #chat .mes[ch_name="祝昀"] .avatar img {
@@ -336,7 +338,7 @@ body.no-blur #send_form {
   font-size: 0;
   &::before {
     content: var(--思维链标题);
-    font-size: calc(var(--mainFontSize) * 1.1);
+    font-size: calc(var(--mainFontSize) * 0.1);
     padding: 0 10px;
   }
   &::after {
@@ -347,7 +349,7 @@ body.no-blur #send_form {
     transform: translate(-50%, -50%);
     color: var(--SmartThemeQuoteColor);
     opacity: 0.45;
-    font-size: calc(var(--mainFontSize) * 2.5);
+    font-size: calc(var(--mainFontSize, 36px) * 2.5);
     white-space: nowrap;
     font-family: var(--英文字体);
     z-index: -1;
@@ -603,8 +605,34 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 0 0 5px 5px;
 }
 
+input[type="checkbox"] {
+  background: color-mix(in srgb, rgba(255,255,255) 50%, transparent);
+  border-radius: 5px;
+  filter: none;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 3px var(--阴影) !important;
+}
+
+.checkbox_label {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"]:checked {
+  background: transparent !important;
+  box-shadow: inset 0 0 4px var(--SmartThemeQuoteColor) !important;
+  transform: scale(0.85) translate(-2.8px, -3px) rotate(-15deg);
+  border-radius: 50%;
+  box-shadow: 2px 3px 0 1px var(--SmartThemeQuoteColor) !important;
+}
+
+input[type="checkbox"]::before {
+  content: none;
+}
+
 #select_chat_popup,
-.popup {
+.popup:not(.transparent_dialogue_popup) {
   box-shadow: 5px 5px 5px var(--阴影);
 }
 
@@ -612,8 +640,18 @@ input[type="range"]::-webkit-slider-thumb {
   backdrop-filter: blur(10px) !important;
 }
 
-#popup-content {
-  box-shadow: none;
+div.toast.toast-success {
+  backdrop-filter: blur(10px) !important;
+  background-color: var(--SmartThemeBlurTintColor) !important;
+  border-radius: 5px !important;
+  color: var(--SmartThemeBodyColor) !important;
+  box-shadow:
+    1px 1px 5px rgba(55,55,55,0.1),
+    0 0 6px var(--阴影) !important;
+}
+
+.popup-content:has(#showRawPrompt) {
+  overflow-y: auto;
 }
 
 .world_entry {
