@@ -867,4 +867,7 @@ label[for="openai_image_inlining"] + div,
   background: var(--color-1) !important;
   }
 }
+#sheld {
+ scrollbar-width:none;
+}
 
