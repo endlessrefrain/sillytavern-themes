@@ -927,3 +927,7 @@ label[for="openai_image_inlining"] + div,
     margin-bottom: var(--头像高度);
   }
 }
+
+#sheld {
+ scrollbar-width:none;
+}
